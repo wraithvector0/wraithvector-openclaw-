@@ -1,0 +1,17 @@
+{
+  "data": {
+    "tool_permissions": {
+      "exec": {
+        "allowed_roles": ["*"],
+        "allowed_commands": ["ls", "pwd", "echo"]
+      },
+      "read": {
+        "allowed_roles": ["*"],
+        "allowed_paths": ["~/.openclaw/workspace/"]
+      }
+    }
+  },
+  "model": {
+    "allow_tools": true
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "wraithvector",
+  "name": "WraithVector Governance",
+  "version": "1.0.0",
+  "main": "index.mjs",
+  "configSchema": {}
+}
