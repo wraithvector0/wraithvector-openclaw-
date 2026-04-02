@@ -1,5 +1,10 @@
 # WraithVector Governance Plugin for OpenClaw
 
+## Status
+
+Production-ready MVP.  
+Actively used to evaluate runtime governance for OpenClaw agents.
+
 ![OpenClaw Plugin](https://img.shields.io/badge/OpenClaw-plugin-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-compliant-purple)
@@ -121,12 +126,28 @@ OpenClaw agent tool call
 ```
 
 **Fail-closed by default** — if WraithVector is unreachable, actions are blocked to protect your system.
-Set `WRAITHVECTOR_FAIL_OPEN=true` to allow actions when offline (development only)
+
+Set `WRAITHVECTOR_FAIL_OPEN=true` to allow actions when offline (development only).
 
 If the governance API is unreachable, the plugin blocks the action locally (fail-closed).  
+
 No audit record is generated because the governance engine was not reached.
 
 ---
+
+## Security model
+
+WraithVector enforces governance outside the agent runtime.
+
+OpenClaw executes tools locally, while WraithVector evaluates policy remotely and produces tamper-evident audit evidence.
+
+This separation ensures:
+
+• enforcement cannot be bypassed by the agent  
+• decisions are externally auditable  
+• policies can be updated without modifying agent code
+
+WraithVector acts as an external governance layer for agent actions.
 
 ## Default policy
 
