@@ -164,7 +164,7 @@ mkdir -p ~/.openclaw/workspace/plugins/wraithvector
 curl -o ~/.openclaw/workspace/plugins/wraithvector/index.mjs \
   https://raw.githubusercontent.com/wraithvector0/wraithvector-openclaw/main/index.mjs
 curl -o ~/.openclaw/workspace/plugins/wraithvector/openclaw.plugin.json \
-  https://raw.githubusercontent.com/wraithvector0/wraithvector-openclaw-/main/openclaw.plugin.json
+  https://raw.githubusercontent.com/wraithvector0/wraithvector-openclaw/main/openclaw.plugin.json
 openclaw gateway restart
 ```
 
