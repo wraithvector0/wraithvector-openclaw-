@@ -17,6 +17,7 @@ export function register(api) {
     try {
 const controller = new AbortController();
 const timeout = setTimeout(() => controller.abort(), 3000);
+<<<<<<< HEAD
 
       console.log("[WraithVector] sending governance check:", {
   tool: toolName,
@@ -25,7 +26,9 @@ const timeout = setTimeout(() => controller.abort(), 3000);
 });
 
       
-      const res = await fetch("https://app.wraithvector.com/api/governance", {
+      
+      const res = await fetch("https://app.wraithvector.com/api/v1/governance", {
+>>>>>>> 40bc1d9 (feat: update endpoint to v1)
         method: "POST",
         headers: {
           "Content-Type": "application/json",
