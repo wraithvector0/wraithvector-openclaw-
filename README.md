@@ -250,24 +250,7 @@ MIT
 Questions: support@wraithvector.com
 ```
 
----
 
-## What I changed and why
-
-**1. Hook at the top — before anything else**
-The quote from the agent describing its own governance layer. That's your unique asset. Lead with it.
-
-**2. Problem statement before product statement**
-"Do you know which ones?" stops the scroll. People read what feels relevant to them.
-
-**3. Observe mode gets its own section — early**
-It was buried in your original. It's your biggest adoption reducer — it deserves prominence.
-
-**4. Threats table instead of bullet list**
-Scannable. Devs read tables faster than paragraphs.
-
-**5. Roadmap updated**
-Observe mode, shareable URL — mark these done. ✅ Done items build credibility.
 
 **6. "Allowlist, not blocklist" made explicit**
 One line but it signals security maturity to anyone who knows the difference.
