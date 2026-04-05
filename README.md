@@ -22,7 +22,7 @@ OpenClaw agents run shell commands, read files, fetch URLs — autonomously,
 including overnight via cron jobs, while you sleep.
 
 A Cisco audit (Feb 2026) found **26% of ClawHub skills contain critical  
-vulnerabilities** including data exfiltration and prompt injection.
+vulnerabilities** including data exfiltration and prompt injection. [ OWN RESEARCH ]
 
 WraithVector intercepts every tool call **before execution**.  
 Every decision generates cryptographic audit evidence for EU AI Act and DORA compliance.
@@ -71,6 +71,26 @@ Switch to enforce mode when you're ready.
 **[View shareable audit report →](https://app.wraithvector.com/audit/example)**
 
 ---
+
+## SECURITY NOTICE
+
+Observe mode does NOT block execution.
+
+When WraithVector runs in "observe" mode, it will only log and audit tool
+calls without preventing execution.
+
+This mode is intended for:
+
+• initial deployment
+• policy tuning
+• developer experimentation
+
+Dangerous commands (e.g. file deletion, network calls, destructive shell
+operations) may still execute if your policy is not set to "enforce".
+
+For production environments you should switch to:
+
+mode: enforce
 
 ## What it catches
 
