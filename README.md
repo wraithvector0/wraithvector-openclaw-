@@ -77,6 +77,29 @@ before_tool_call
 
 If Status: loaded appears, the governance layer is active.
 
+## Open the dashboard
+
+Once your API key is set and OpenClaw is running, you can view
+all tool decisions in the WraithVector dashboard.
+
+Open:
+
+https://app.wraithvector.com/openclaw
+
+The dashboard shows:
+
+- Last 5 tool calls intercepted by WraithVector
+- allow / block decisions
+- command or path evaluated
+- risk level and reason
+- minimal audit record
+
+Every agent action evaluated by WraithVector appears here in real time.
+
+After installing the plugin, trigger a few agent actions and refresh the dashboard.
+
+
+
 ## Start in observe mode (zero risk)
 
 Don't want to block anything yet? Start by watching.
