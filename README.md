@@ -124,6 +124,16 @@ Switch to enforce mode when you're ready.
 
 ---
 
+## Update
+
+To update the plugin to the latest version:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/wraithvector0/wraithvector-openclaw/main/install.sh | bash
+openclaw gateway restart
+
+```
+
 ## Security notice
 
 Observe mode does **not** block execution.
