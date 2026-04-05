@@ -8,6 +8,9 @@
 > an OpenClaw agent, describing its own governance layer
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+> ⚠️ **Beta** — actively developed. APIs may change.  
+> Issues and feedback welcome → https://github.com/wraithvector0/wraithvector-openclaw/issues
 ---
 
 ## Your AI agent is executing real commands on your machine.
@@ -17,7 +20,11 @@ OpenClaw agents run shell commands, read files, fetch URLs — autonomously,
 including overnight via cron jobs, while you sleep.
 
 A Cisco audit (Feb 2026) found **26% of ClawHub skills contain critical  
-vulnerabilities** including data exfiltration and prompt injection. [ OWN RESEARCH ]
+vulnerabilities** including data exfiltration and prompt injection.
+
+https://www.linkedin.com/pulse/151000-star-security-crisis-what-leaders-need-know-openclaw-tan-664nc/
+
+
 
 WraithVector intercepts every tool call **before execution**.  
 Every decision generates cryptographic audit evidence for EU AI Act and DORA compliance.
