@@ -1,15 +1,11 @@
 
-
----
-
-```markdown
 # WraithVector — Runtime Governance for OpenClaw Agents
 
 ![demo](./demo.gif)
 
 > *"WraithVector is the governance layer sitting on top of OpenClaw,  
 > enforcing what I can and can't do."*  
-> — an OpenClaw agent, describing its own governance layer
+> an OpenClaw agent, describing its own governance layer
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ---
