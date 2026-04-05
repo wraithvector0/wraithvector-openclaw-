@@ -74,25 +74,20 @@ Switch to enforce mode when you're ready.
 
 ---
 
-## SECURITY NOTICE
+## Security notice
 
-Observe mode does NOT block execution.
-
-When WraithVector runs in "observe" mode, it will only log and audit tool
-calls without preventing execution.
+Observe mode does **not** block execution.
 
 This mode is intended for:
 
-• initial deployment
-• policy tuning
-• developer experimentation
+- initial deployment
+- policy tuning
+- developer experimentation
 
-Dangerous commands (e.g. file deletion, network calls, destructive shell
-operations) may still execute if your policy is not set to "enforce".
+Dangerous commands may still execute if the policy is not set to `enforce`.
 
-For production environments you should switch to:
+For production environments use: enforce
 
-mode: enforce
 
 ## What it catches
 
