@@ -11,7 +11,6 @@ export function register(api) {
     const FAIL_OPEN = process.env.WRAITHVECTOR_FAIL_OPEN === "true";
 
     if (!apiKey || apiKey === "YOUR_API_KEY_HERE") {
-      console.warn("[WraithVector] No API key set. Get yours at https://app.wraithvector.com/onboarding");
       return {
         block: true,
         blockReason:
@@ -24,70 +23,78 @@ export function register(api) {
       const timeout = setTimeout(() => controller.abort(), 8000);
 
       try {
-        console.log("[WraithVector] sending governance check:", {
-          tool: toolName,
-          command,
-          path,
-        });
 
-        const res = await fetch("https://app.wraithvector.com/api/v1/governance", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${apiKey}`,
-            "x-agent-id": "openclaw",
-            "x-agent-role": "assistant",
-          },
-          body: JSON.stringify({
-            event: "tool_request",
-            tool_name: toolName,
-            command,
-            path,
-            args: event.params,
-            run_id: event.runId || "",
-            call_id: event.toolCallId || "",
-          }),
-          signal: controller.signal,
-        });
+        const res = await fetch(
+          "https://app.wraithvector.com/api/v1/governance",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${apiKey}`,
+              "x-agent-id": "openclaw",
+              "x-agent-role": "assistant",
+            },
+            body: JSON.stringify({
+              event: "tool_request",
+              tool_name: toolName,
+              command,
+              path,
+              args: event.params,
+              run_id: event.runId || "",
+              call_id: event.toolCallId || "",
+            }),
+            signal: controller.signal,
+          }
+        );
 
-        if (!res.ok) throw new Error("bad response");
+        let data = {};
+        try {
+          data = await res.json();
+        } catch {}
 
-        const data = await res.json();
+        /* ---- BLOCK decision ---- */
 
-        if (data.decision === "BLOCK") {
+        if (data?.decision === "BLOCK") {
           return {
             block: true,
             blockReason:
-`WraithVector intercepted this action.
+`WraithVector BLOCK
 
 Tool: ${toolName}
-Reason: ${data.reason}
+Reason: ${data.reason || "policy violation"}
 
-This action was blocked by the WraithVector governance layer.`,
+Audit available in WraithVector dashboard.`,
           };
         }
 
-        console.log("[WraithVector] decision:", data.decision, data.reason);
+        /* ---- API error real ---- */
+
+        if (!res.ok) {
+          throw new Error(`governance error ${res.status}`);
+        }
+
+        console.log("[WraithVector] decision:", data?.decision);
         return {};
 
       } catch (err) {
+
         console.warn("[WraithVector] attempt failed:", attempt + 1);
 
         if (attempt === 2) {
+
           if (FAIL_OPEN) {
-            console.warn("[WraithVector] governance unreachable, FAIL_OPEN active");
+            console.warn("[WraithVector] governance unreachable → FAIL_OPEN");
             return {};
           }
 
-          console.error("[WraithVector] governance unreachable:", err?.message);
           return {
             block: true,
             blockReason:
-`WraithVector governance service is unreachable.
+`WraithVector governance service unreachable.
 
 Action blocked for safety.
 
-Set WRAITHVECTOR_FAIL_OPEN=true to allow actions when the governance API is offline.`,
+Set WRAITHVECTOR_FAIL_OPEN=true to allow execution if governance API is offline.`,
           };
         }
 
