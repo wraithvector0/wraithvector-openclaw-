@@ -102,6 +102,24 @@ For production environments use: enforce
 
 ---
 
+
+---
+
+## Scope
+
+WraithVector governs **pre-execution tool calls**.
+
+It prevents agents or skills from executing unauthorized commands,
+accessing restricted files, or calling external resources outside policy.
+
+Out of scope:
+
+- Prompt injection at the LLM reasoning layer
+- Infrastructure misconfiguration (exposed gateways, leaked API keys)
+- Multi-agent spawning correlation *(planned)*
+
+WraithVector acts as the **last line of defense between an AI agent and your machine**.
+
 ## Real scenario
 
 In February 2026, an OpenClaw agent autonomously created a dating profile  
