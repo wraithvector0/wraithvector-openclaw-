@@ -21,10 +21,7 @@ Applies policy. Blocks dangerous actions. Generates audit evidence.
 OpenClaw agents run shell commands, read files, fetch URLs — autonomously,  
 including overnight via cron jobs, while you sleep.
 
-A Cisco audit (Feb 2026) found **26% of ClawHub skills contain critical  
-vulnerabilities** including data exfiltration and prompt injection.
-
-Soruce: https://www.linkedin.com/pulse/151000-star-security-crisis-what-leaders-need-know-openclaw-tan-664nc/
+**Security researchers recently reported that 26% of OpenClaw skills contain critical vulnerabilities.**
 
 
 
