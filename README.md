@@ -51,6 +51,32 @@ openclaw gateway restart
 
 ---
 
+
+## Verify plugin loaded
+
+After installation, confirm that OpenClaw detected the plugin:
+
+
+
+```bash
+openclaw plugins inspect wraithvector
+
+````
+Expected output:
+
+WraithVector Governance
+id: wraithvector
+
+Status: loaded
+Format: openclaw
+Source: ~/.openclaw/workspace/plugins/wraithvector/index.mjs
+Shape: hook-only
+
+Typed hooks:
+before_tool_call
+
+If Status: loaded appears, the governance layer is active.
+
 ## Start in observe mode (zero risk)
 
 Don't want to block anything yet? Start by watching.
