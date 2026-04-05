@@ -1,4 +1,4 @@
-Here's the rewritten README. Changes explained after.
+
 
 ---
 
