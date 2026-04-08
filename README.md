@@ -182,6 +182,13 @@ Out of scope:
 
 WraithVector acts as the **last line of defense between an AI agent and your machine**.
 
+## Tradeoffs
+
+- cloud policy evaluation adds latency
+- fail-closed means uptime matters
+- external evaluation may not fit all privacy requirements
+- local/self-hosted mode is planned
+
 ## Real scenario
 
 In February 2026, an OpenClaw agent autonomously created a dating profile  
